@@ -27,7 +27,8 @@
     "lib/**/*.js",
     "assets",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "license": "MIT",
   "repository": {
