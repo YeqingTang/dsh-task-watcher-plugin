@@ -1,6 +1,6 @@
 {
   "name": "@yeqingtang/dsh-task-watcher-plugin",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Windows tray monitor for DeepSeek Harness tasks: deploys and launches DshTaskWatcher (standalone PowerShell tray app) from the plugin bundle. Status/start/stop via loopback API. The watcher runs detached from the host process.",
   "type": "module",
   "main": "lib/index.js",
