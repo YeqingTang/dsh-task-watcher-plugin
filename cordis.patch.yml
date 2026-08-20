@@ -1,0 +1,10 @@
+# dsh-task-watcher-plugin bundle patch: inserts the host-only plugin row
+# into the web profile roster. Install with
+#   dsh plugin --profile web add github:YeqingTang/dsh-task-watcher-plugin
+# The row is a bare plugin by package name: the node half (exports ".")
+# runs in the host process and registers the /api/dsh-task-watcher/*
+# loopback routes (deploy / status / start / stop). There is no browser
+# half by design — the watcher is a Windows tray app, not a web surface.
+- insert:
+    - id: task-watcher
+      name: '@yeqingtang/dsh-task-watcher-plugin'

@@ -1,0 +1,12 @@
+{
+    "baseUrl": "http://127.0.0.1:3080",
+    "openUrl": "http://127.0.0.1:3080",
+    "pollSeconds": 3,
+    "toastOnStart": false,
+    "toastOnFinish": true,
+    "playSoundOnFinish": true,
+    "toastForSubagents": true,
+    "statusWindowOnTop": true,
+    "notifyOnUserAction": true,
+    "attentionSound": true
+}
