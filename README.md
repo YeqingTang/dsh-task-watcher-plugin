@@ -23,6 +23,16 @@ DSH 任务监视器插件（薄壳）——把 [DshTaskWatcher](https://github.c
 
 ## 安装
 
+![preview](assets/screenshots/preview.png)
+
+方式一（推荐，npm 源）：
+
+```sh
+dsh plugin --profile web add @yeqingtang/dsh-task-watcher-plugin
+```
+
+方式二（GitHub 源）：
+
 ```sh
 dsh plugin --profile web add github:YeqingTang/dsh-task-watcher-plugin
 ```
