@@ -1,5 +1,7 @@
 # 内部文档（含本机路径与上架待办）
 docs/
+# npm 凭据（含 token，绝不提交）
+.npmrc
 # 系统/杂项
 Thumbs.db
 *.log
