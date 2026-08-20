@@ -149,6 +149,9 @@ if (-not $SelfTest -and -not $Demo) {
 
 $script:AppId = 'DshTaskWatcher'
 $script:DataDir = Join-Path $env:LOCALAPPDATA $script:AppId
+# 用户停止意图标记：任何真实启动（快捷方式/插件路由）都清除它——
+# 下次 DSH 宿主启动时插件据此判断「用户上次主动停了，不要自动拉起」
+try { Remove-Item (Join-Path $script:DataDir 'stopped.flag') -Force -ErrorAction SilentlyContinue } catch { }
 $script:LogDir = Join-Path $script:DataDir 'logs'
 $script:LogFile = Join-Path $script:LogDir 'watcher.log'
 $script:StatusFile = Join-Path $script:DataDir 'status.json'
@@ -2041,6 +2044,9 @@ function Acquire-SingleInstance {
 
 function Exit-App {
     Write-Log '正在退出…'
+    # 优雅退出 = 用户主动停止：写标记，插件的 boot 自动拉起看到它会跳过
+    # （崩溃/被强杀不写——下次宿主启动允许自动恢复）
+    try { Set-Content (Join-Path $script:DataDir 'stopped.flag') 'user-exited' -Encoding ASCII } catch { }
     Stop-SseListener
     Stop-Fetcher
     try { if ($null -ne $script:Timer) { $script:Timer.Stop() } } catch { }
